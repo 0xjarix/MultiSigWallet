@@ -1,3 +1,7 @@
+## Summary
+A wallet with multiple owners, each having their own private key.
+A specified number of owners (threshold) is required to approve and execute a transaction.
+Owners can submit, approve, and cancel transactions.
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
