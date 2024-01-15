@@ -48,9 +48,10 @@ contract MultiSigWalletTest is Test {
 
     function testExecuteTransaction() public {
         vm.startPrank(address(0x3));
-        wallet.submitTransaction(address(0x4), 100, "");
+        wallet.submitTransaction(address(0x4), 100000, "");
         wallet.approveTransaction(0);
         assertEq(wallet.getTransactionExecuted(0), false);
+        vm.deal(address(wallet), 100000); // send 100000 to wallet
         vm.startPrank(address(0x2));
         wallet.approveTransaction(0);
         assertEq(wallet.getTransactionExecuted(0), true);
