@@ -51,8 +51,8 @@ contract MultiSigWalletTest is Test {
         wallet.submitTransaction(address(0x4), 100, "");
         wallet.approveTransaction(0);
         assertEq(wallet.getTransactionExecuted(0), false);
-        /*vm.startPrank(address(0x2));
+        vm.startPrank(address(0x2));
         wallet.approveTransaction(0);
-        assertEq(wallet.getTransactionExecuted(0), true);*/
+        assertEq(wallet.getTransactionExecuted(0), true);
     }
 }

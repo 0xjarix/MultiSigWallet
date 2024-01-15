@@ -145,12 +145,12 @@ contract MultiSigWallet {
             revert MultiSigWallet__TransactionNotApproved();
 
         transactions[_transactionId].executed = true;
-
+/*
         (bool success, ) = transactions[_transactionId].to.call{value: transactions[_transactionId].value}(
             transactions[_transactionId].data
         );
-        require(success, "Transaction execution failed");
-
+        require(success, "Transaction execution failed");*/
+        Address.sendValue(payable(transactions[_transactionId].to), transactions[_transactionId].value);
         emit Execution(msg.sender, _transactionId);
     }
 
